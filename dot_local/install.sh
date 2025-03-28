@@ -58,7 +58,7 @@ install_aws_cli() {
     }
     # Unzip the downloaded file.
     echo "Unzipping AWS CLI package..."
-    unzip awscliv2.zip -d /usr/local/ || {
+    sudo unzip awscliv2.zip -d /usr/local/ || {
         echo "Failed to unzip AWS CLI package."
         return 1
     }
