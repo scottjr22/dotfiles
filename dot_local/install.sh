@@ -58,25 +58,22 @@ install_aws_cli() {
     }
     # Unzip the downloaded file.
     echo "Unzipping AWS CLI package..."
-    unzip awscliv2.zip || {
+    unzip awscliv2.zip -d /usr/local/ || {
         echo "Failed to unzip AWS CLI package."
         return 1
     }
     # Install AWS CLI using sudo.
     echo "Installing AWS CLI..."
-    sudo ./aws/install || {
+    sudo /usr/local/aws/install || {
         echo "AWS CLI installation failed."
         return 1
     }
     echo "AWS CLI installed successfully."
-    # Cleanup downloaded files and directories.
-    rm -f awscliv2.zip
-    rm -rf aws
 }
 
 
 # Check and install each tool.
 install_atuin
-install aws_cli
+install_aws_cli
 
 echo "Installation complete. All requested packages are installed."
